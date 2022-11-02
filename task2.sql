@@ -1,0 +1,15 @@
+CREATE TABLE AUTHORS
+(
+  id   SERIAL PRIMARY KEY,
+  name VARCHAR(256) NOT NULL
+);
+
+CREATE TABLE POSTS
+(
+  id          SERIAL PRIMARY KEY,
+  title       VARCHAR(256) NOT NULL,
+  description VARCHAR(256) NOT NULL,
+  content     TEXT         NOT NULL,
+  authorId    INT,
+  FOREIGN KEY (authorId) REFERENCES AUTHORS (id) ON DELETE CASCADE
+);
